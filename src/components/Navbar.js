@@ -4,7 +4,7 @@ import { AuthContext } from './../context/auth.context';
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider `value` prop
+  // the values from AuthContext.Provider `value`
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (

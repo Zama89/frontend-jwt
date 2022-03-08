@@ -13,7 +13,7 @@ function App() {
     <AuthProviderWrapper>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route
           path="/protected"
           element={
