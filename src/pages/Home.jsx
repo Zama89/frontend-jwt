@@ -25,6 +25,7 @@ function Home() {
       });
   }, []);
   console.log(armies);
+
   return (
     <div>
       <h1>Home</h1>

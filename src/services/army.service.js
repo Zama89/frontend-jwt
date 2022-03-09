@@ -8,7 +8,7 @@ class ArmyService {
   }
   getArmies = async () => {
     try {
-      const armies = await this.army.get('/api/army');
+      const armies = await this.army.get('/army');
       console.log(armies);
       return armies.data;
     } catch (error) {

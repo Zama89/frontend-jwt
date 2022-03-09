@@ -40,6 +40,10 @@ class ApiService {
   getArmies = () => {
     return this.api.get('/api/');
   };
+
+  createArmies = body => {
+    return this.api.post('/api/add', body);
+  };
 }
 
 // Create one instance (object) of the service
