@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 
 function Home() {
@@ -29,6 +30,9 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
+      <Link to={'/add'}>
+        <button>Add</button>
+      </Link>
       <div>
         {armies.length !== 0 &&
           armies.map((army, index) => {

@@ -44,6 +44,18 @@ class ApiService {
   createArmies = body => {
     return this.api.post('/api/add', body);
   };
+
+  getArmyById = armyId => {
+    return this.api.get(`/api/army/${armyId}`);
+  };
+
+  editOneArmy = (armyId, requestBody) => {
+    return this.api.post(`/api/army/${armyId}/edit`, requestBody);
+  };
+
+  deleteArmy = armyId => {
+    return this.api.delete(`/api/army/${armyId}/delete`);
+  };
 }
 
 // Create one instance (object) of the service
