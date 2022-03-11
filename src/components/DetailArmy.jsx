@@ -1,60 +1,65 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
+import EditArmy from './EditArmy';
+import DeleteArmy from './DeleteArmy';
 
 function DetailArmy() {
-  const [army, setArmy] = useState({
-    name: '',
-  });
+  const [army, setArmy] = useState({});
+  const [edit, setEdit] = useState(false);
   const { armyId } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
+    console.log(armyId);
     apiService
-      .getArmyById(armyId)
+      .getArmyById(armyId.toString())
       .then(response => {
+        console.log('PROBANDO', response);
         setArmy(response.data);
       })
       .catch(err => console.log(err));
-  }, []);
-
-  const handleChange = e => {
-    setArmy(prev => {
-      return {
-        ...prev,
-        [e.target.name]: e.target.value,
-      };
-    });
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    apiService
-      .editOneArmy(armyId, { name: army.name })
-      .then(response => {
-        console.log(response);
-        navigate('/');
-      })
-      .catch(err => console.log(err));
-  };
-
-  const deleteArmy = () => {
-    apiService
-      .deleteArmy(armyId)
-      .then(() => {
-        navigate('/');
-      })
-      .catch(err => console.log(err));
-  };
+  }, [armyId]);
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Name:</label>
-        <input type="text" name="name" value={army.name} onChange={handleChange} />
-        <button type="submit">Edit Army</button>
-        <button onClick={deleteArmy}>Delete Army</button>
-      </form>
+      <button
+        onClick={() => {
+          setEdit(!edit);
+        }}
+      >
+        Edit
+      </button>
+      <DeleteArmy />
+      {edit ? (
+        <EditArmy army={army} />
+      ) : (
+        <div>
+          <p>
+            <span>Heroe:</span>
+            <span>{army.heroe}</span>
+          </p>
+          <p>
+            <span>General:</span>
+            <span>{army.general}</span>
+          </p>
+          <p>
+            <span>Infantry:</span>
+            <span>{army.infantry}</span>
+          </p>
+          <p>
+            <span>Artillery:</span>
+            <span>{army.artillery}</span>
+          </p>
+          <p>
+            <span>Name:</span>
+            <span>{army.name}</span>
+          </p>
+          <p>
+            <span>Advice:</span>
+            <span>{army.advice}</span>
+          </p>
+        </div>
+      )}
     </div>
   );
 }

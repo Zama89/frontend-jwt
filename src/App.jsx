@@ -19,9 +19,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/add" element={<CreateArmy />} />
-        <Route exact path="/army" element={<DetailArmy />} />
-        <Route exact path="/army/edit" element={<EditArmy />} />
-        <Route exact path="/army/delete" element={<DeleteArmy />} />
+        <Route exact path="/:armyId" element={<DetailArmy />} />
+        <Route exact path="/:armyId/edit" element={<EditArmy />} />
+        <Route exact path="/:armyId/delete" element={<DeleteArmy />} />
         <Route
           path="/protected"
           element={

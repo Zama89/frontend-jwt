@@ -33,11 +33,15 @@ function Home() {
       <Link to={'/add'}>
         <button>Add</button>
       </Link>
+      <Link to={'/:armyId/edit'}>
+        <button>Edit</button>
+      </Link>
       <div>
-        {armies.length !== 0 &&
+        {JSON.stringify(armies)}
+        {/* {armies.length !== 0 &&
           armies.map((army, index) => {
             return <h3 key={index}>{army.name}</h3>;
-          })}
+          })} */}
       </div>
     </div>
   );

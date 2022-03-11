@@ -49,12 +49,12 @@ class ApiService {
     return this.api.get(`/api/army/${armyId}`);
   };
 
-  editOneArmy = (armyId, requestBody) => {
-    return this.api.post(`/api/army/${armyId}/edit`, requestBody);
+  editArmy = (armyId, requestBody) => {
+    return this.api.post(`/api/army/${armyId}`, requestBody.armyEdit);
   };
 
   deleteArmy = armyId => {
-    return this.api.delete(`/api/army/${armyId}/delete`);
+    return this.api.delete(`/api/army/${armyId}`);
   };
 }
 

@@ -2,20 +2,21 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
 
-function EditArmy() {
+function EditArmy({ army }) {
   const [armyEdit, setArmyEdit] = useState({
+    heroe: '',
+    general: '',
+    infantry: '',
+    artillery: '',
     name: '',
+    advice: '',
   });
-  const { armyId } = useParams();
   const navigate = useNavigate();
 
+  const { armyId } = useParams();
+
   useEffect(() => {
-    apiService
-      .getArmyById(armyId)
-      .then(response => {
-        setArmyEdit(response.data);
-      })
-      .catch(err => console.log(err));
+    setArmyEdit(army);
   }, []);
 
   const handleChange = e => {
@@ -30,7 +31,7 @@ function EditArmy() {
   const handleSubmit = e => {
     e.preventDefault();
     apiService
-      .editOneArmy(armyId, { name: armyEdit.name })
+      .editArmy(armyId, { armyEdit })
       .then(response => {
         console.log(response);
         navigate(`/`);
@@ -41,8 +42,23 @@ function EditArmy() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label>Heroe:</label>
+        <input type="text" name="heroe" value={armyEdit.heroe} onChange={handleChange} />
+
+        <label>General:</label>
+        <input type="text" name="general" onChange={handleChange} value={armyEdit.general} />
+
+        <label>Infantry:</label>
+        <input type="text" name="infantry" onChange={handleChange} value={armyEdit.infantry} />
+
+        <label>Artillery:</label>
+        <input type="text" name="artillery" onChange={handleChange} value={armyEdit.artillery} />
+
         <label>Name:</label>
-        <input type="text" name="name" value={armyEdit.name} onChange={handleChange} />
+        <input type="text" name="name" onChange={handleChange} value={armyEdit.name} />
+
+        <label>Advice:</label>
+        <input type="text" name="advice" onChange={handleChange} value={armyEdit.advice} />
         <button type="submit">Edit Army</button>
       </form>
     </div>
