@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
-import EditArmy from './EditArmy';
-import DeleteArmy from './DeleteArmy';
+import EditArmy from '../components/EditArmy';
+import DeleteArmy from '../components/DeleteArmy';
+import { AuthContext } from '../context/auth.context';
+import { useContext } from 'react';
 
 function DetailArmy() {
   const [army, setArmy] = useState({});
   const [edit, setEdit] = useState(false);
   const { armyId } = useParams();
+  const { isLoggedIn, user } = useContext(AuthContext);
+  const cantEdit = !isLoggedIn || army.owner !== user._id;
 
   useEffect(() => {
     console.log(armyId);
@@ -23,13 +27,14 @@ function DetailArmy() {
   return (
     <div>
       <button
+        disabled={cantEdit}
         onClick={() => {
           setEdit(!edit);
         }}
       >
         Edit
       </button>
-      <DeleteArmy />
+      <DeleteArmy disabled={cantEdit} />
       {edit ? (
         <EditArmy army={army} />
       ) : (
@@ -57,6 +62,10 @@ function DetailArmy() {
           <p>
             <span>Advice:</span>
             <span>{army.advice}</span>
+          </p>
+          <p>
+            <span>Owner:</span>
+            <span>{army.owner}</span>
           </p>
         </div>
       )}

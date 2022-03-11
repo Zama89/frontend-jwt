@@ -1,6 +1,8 @@
 import apiService from '../services/api.service';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
+import { useContext } from 'react';
 
 function CreateArmy() {
   const [newArmies, setNewArmies] = useState({
@@ -12,6 +14,7 @@ function CreateArmy() {
     advice: '',
   });
 
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleEvent = e => {
@@ -26,6 +29,8 @@ function CreateArmy() {
 
   const handleCreate = e => {
     e.preventDefault();
+    newArmies.owner = user._id;
+    console.log(newArmies);
     apiService
       .createArmies(newArmies)
       .then(() => {

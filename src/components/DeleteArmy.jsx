@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
 
-function DeleteArmy() {
+function DeleteArmy({ disabled }) {
   const { armyId } = useParams();
   const navigate = useNavigate();
 
@@ -16,7 +16,9 @@ function DeleteArmy() {
 
   return (
     <div>
-      <button onClick={deleteArmy}>Delete Army</button>
+      <button onClick={deleteArmy} disabled={disabled}>
+        Delete Army
+      </button>
     </div>
   );
 }

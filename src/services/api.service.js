@@ -42,6 +42,7 @@ class ApiService {
   };
 
   createArmies = body => {
+    console.log('creandooo', body);
     return this.api.post('/api/add', body);
   };
 

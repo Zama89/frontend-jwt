@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
+import { AuthContext } from '../context/auth.context';
+import { useContext } from 'react';
 
 function EditArmy({ army }) {
   const [armyEdit, setArmyEdit] = useState({
@@ -11,6 +13,8 @@ function EditArmy({ army }) {
     name: '',
     advice: '',
   });
+
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const { armyId } = useParams();
@@ -30,6 +34,7 @@ function EditArmy({ army }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    armyEdit.owner = user._id;
     apiService
       .editArmy(armyId, { armyEdit })
       .then(response => {

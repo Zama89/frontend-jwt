@@ -8,9 +8,7 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import Protected from './pages/Protected';
 import SignupPage from './pages/SignupPage';
-import DetailArmy from './components/DetailArmy';
-import EditArmy from './components/EditArmy';
-import DeleteArmy from './components/DeleteArmy';
+import DetailArmy from './pages/DetailArmy';
 
 function App() {
   return (
@@ -18,10 +16,17 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/add" element={<CreateArmy />} />
+        <Route
+          exact
+          path="/add"
+          element={
+            <IsPrivate>
+              <CreateArmy />
+            </IsPrivate>
+          }
+        />
         <Route exact path="/:armyId" element={<DetailArmy />} />
-        <Route exact path="/:armyId/edit" element={<EditArmy />} />
-        <Route exact path="/:armyId/delete" element={<DeleteArmy />} />
+
         <Route
           path="/protected"
           element={
