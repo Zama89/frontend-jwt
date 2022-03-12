@@ -57,6 +57,10 @@ class ApiService {
   deleteArmy = armyId => {
     return this.api.delete(`/api/army/${armyId}`);
   };
+
+  setFavorite = (favoriteArmies, userId) => {
+    return this.api.post(`/user/setfavorite/${userId}`, favoriteArmies);
+  };
 }
 
 // Create one instance (object) of the service

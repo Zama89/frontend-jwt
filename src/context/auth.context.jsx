@@ -6,6 +6,7 @@ const AuthContext = React.createContext();
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
   const [user, setUser] = useState(null);
 
   const storeToken = token => {
@@ -30,6 +31,7 @@ function AuthProviderWrapper(props) {
       .then(response => {
         // If the server verifies that JWT token is valid  ✅
         const user = response.data;
+        console.log(user, 'FUNSIONA');
         // Update state variables
         setIsLoggedIn(true);
         setIsLoading(false);
@@ -62,7 +64,7 @@ function AuthProviderWrapper(props) {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser, signup, login }}
+      value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser, signup, login, setUser }}
     >
       {props.children}
     </AuthContext.Provider>
