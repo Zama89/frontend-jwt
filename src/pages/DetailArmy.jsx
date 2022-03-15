@@ -61,55 +61,61 @@ function DetailArmy() {
 
   return (
     <div className="detail-page">
-      <button
-        disabled={cantEdit}
-        onClick={() => {
-          setEdit(!edit);
-        }}
-      >
-        Edit
-      </button>
-      <DeleteArmy disabled={cantEdit} />
+      <h1 className="titulo-principal">Army</h1>
+      <div className="form-button">
+        <div className="detail-row">
+          <button
+            className="botones"
+            disabled={cantEdit}
+            onClick={() => {
+              setEdit(!edit);
+            }}
+          >
+            Edit
+          </button>
+        </div>
+        <DeleteArmy disabled={cantEdit} />
+      </div>
       {edit ? (
         <EditArmy army={army} />
       ) : (
-        <div className="detail-view">
-          <p>
-            <span>Heroe:</span>
-            <span>{army?.heroe}</span>
-          </p>
-          <p>
-            <span>General:</span>
-            <span>{army?.general}</span>
-          </p>
-          <p>
-            <span>Infantry:</span>
-            <span>{army?.infantry}</span>
-          </p>
-          <p>
-            <span>Artillery:</span>
-            <span>{army?.artillery}</span>
-          </p>
-          <p>
-            <span>Name:</span>
-            <span>{army?.name}</span>
-          </p>
-          <p>
-            <span>Advice:</span>
-            <span>{army?.advice}</span>
-          </p>
-          <p>
-            <span>Owner:</span>
-            <span>{army?.owner}</span>
-          </p>
+        <div className="detail-army">
+          <div className="detail-row">
+            <p>Heroe:</p>
+            <p>{army?.heroe}</p>
+          </div>
+          <div className="detail-row">
+            <p>General:</p>
+            <p>{army?.general}</p>
+          </div>
+          <div className="detail-row">
+            <p>Infantry:</p>
+            <p>{army?.infantry}</p>
+          </div>
+          <div className="detail-row">
+            <p>Artillery:</p>
+            <p>{army?.artillery}</p>
+          </div>
+          <div className="detail-row">
+            <p>Name:</p>
+            <p>{army?.name}</p>
+          </div>
+          <div className="detail-row">
+            <p>Advice:</p>
+            <p>{army?.advice}</p>
+          </div>
+          <div className="detail-row">
+            <p>Owner:</p>
+            <p>{army?.owner}</p>
+          </div>
         </div>
       )}
       {user?.favoriteArmies?.includes(army?._id) ? (
-        <button onClick={setFavorite} style={{ background: 'yellow' }}>
+        <button className="botones" onClick={setFavorite} style={{ background: 'yellow' }}>
           Favorite
         </button>
       ) : (
-        <button onClick={setFavorite} style={{ background: 'black' }}>
+        <button className="botones" onClick={setFavorite} style={{ background: 'black' }}>
           Favorite
         </button>
       )}

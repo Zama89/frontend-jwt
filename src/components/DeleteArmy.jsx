@@ -16,7 +16,7 @@ function DeleteArmy({ disabled }) {
 
   return (
     <div>
-      <button onClick={deleteArmy} disabled={disabled}>
+      <button className="botones" onClick={deleteArmy} disabled={disabled}>
         Delete Army
       </button>
     </div>

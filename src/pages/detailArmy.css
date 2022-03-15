@@ -1,0 +1,17 @@
+.detail-page .form-button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.detail-army {
+  font-size: 25px;
+  margin: 18px;
+}
+
+.detail-row {
+  display: flex;
+}
+
+.detail-row p:first-child {
+  width: 30%;
+}
