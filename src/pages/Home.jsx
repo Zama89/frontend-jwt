@@ -33,10 +33,10 @@ function Home() {
       <Link to={'/add'}>
         <button>Add</button>
       </Link>
-      <div>
+      <div className="army-list">
         {armies.length !== 0 &&
           armies.map((army, index) => (
-            <Link key={index} to={`/${army._id}`}>
+            <Link className="army-row" key={index} to={`/${army._id}`}>
               <h3>{army.name}</h3>
             </Link>
           ))}

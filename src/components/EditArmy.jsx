@@ -21,7 +21,7 @@ function EditArmy({ army }) {
 
   useEffect(() => {
     setArmyEdit(army);
-  }, []);
+  }, [army]);
 
   const handleChange = e => {
     setArmyEdit(prev => {
@@ -45,7 +45,7 @@ function EditArmy({ army }) {
   };
 
   return (
-    <div>
+    <div className="edit-view">
       <form onSubmit={handleSubmit}>
         <label>Heroe:</label>
         <input type="text" name="heroe" value={armyEdit.heroe} onChange={handleChange} />

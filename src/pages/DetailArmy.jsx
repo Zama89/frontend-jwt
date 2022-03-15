@@ -59,7 +59,7 @@ function DetailArmy() {
   };
 
   return (
-    <div>
+    <div className="detail-page">
       {JSON.stringify(user)}
       {JSON.stringify(prevUser)}
       <button
@@ -74,7 +74,7 @@ function DetailArmy() {
       {edit ? (
         <EditArmy army={army} />
       ) : (
-        <div>
+        <div className="detail-view">
           <p>
             <span>Heroe:</span>
             <span>{army?.heroe}</span>
