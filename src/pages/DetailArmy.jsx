@@ -5,6 +5,7 @@ import EditArmy from '../components/EditArmy';
 import DeleteArmy from '../components/DeleteArmy';
 import { AuthContext } from '../context/auth.context';
 import { useContext } from 'react';
+import './detailArmy.css';
 
 function DetailArmy() {
   const [army, setArmy] = useState({});
@@ -60,8 +61,6 @@ function DetailArmy() {
 
   return (
     <div className="detail-page">
-      {JSON.stringify(user)}
-      {JSON.stringify(prevUser)}
       <button
         disabled={cantEdit}
         onClick={() => {
