@@ -14,7 +14,7 @@ function DetailArmy() {
   const [isClickedFav, setIsClickedFav] = useState(false);
   const { isLoggedIn, user, setUser } = useContext(AuthContext);
 
-  const cantEdit = !isLoggedIn || army?.owner !== user?._id;
+  const cantEdit = !isLoggedIn || army?.owner?._id !== user?._id;
 
   useEffect(() => {
     console.log(armyId);
@@ -37,7 +37,7 @@ function DetailArmy() {
     let favoriteUserArmy = [...user.favoriteArmies];
     // console.log(favoriteUserArmy, 'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ', army._id);
     console.log('esto es el prevUser', prevUser);
-    console.log('esto es el user', user);
+    console.log('esto es el user', user._id);
     if (
       (prevUser?.current?.favoriteArmies?.includes(army._id) && !user?.favoriteArmies?.includes(army._id)) ||
       (!prevUser?.current?.favoriteArmies?.includes(army._id) && user?.favoriteArmies?.includes(army._id))
@@ -68,7 +68,8 @@ function DetailArmy() {
             className="botones"
             disabled={cantEdit}
             onClick={() => {
-              setEdit(!edit);
+              console.log('click');
+              setEdit(oldValue => !oldValue);
             }}
           >
             Edit
@@ -106,7 +107,7 @@ function DetailArmy() {
           </div>
           <div className="detail-row">
             <p>Owner:</p>
-            <p>{army?.owner}</p>
+            <p>{army?.owner?.username}</p>
           </div>
         </div>
       )}
