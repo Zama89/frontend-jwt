@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <nav>
       <Link to="/">
-        <button>Navbar</button>
+        <button>Army list</button>
       </Link>
 
       {isLoggedIn && (

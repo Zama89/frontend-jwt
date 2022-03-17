@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
 import { AuthContext } from '../context/auth.context';
 import { useContext } from 'react';
-import './editArmy.css';
 
 function EditArmy({ army }) {
   const [armyEdit, setArmyEdit] = useState({
