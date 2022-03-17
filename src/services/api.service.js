@@ -59,7 +59,13 @@ class ApiService {
   };
 
   setFavorite = (favoriteArmies, userId) => {
+    console.log(favoriteArmies, 'FWUEIFWFWFIWP');
     return this.api.post(`/user/setfavorite/${userId}`, favoriteArmies);
+  };
+
+  userArmies = userId => {
+    console.log(userId, 'AL LISTAOOO');
+    return this.api.get(`/api/myarmies/${userId}`);
   };
 }
 
