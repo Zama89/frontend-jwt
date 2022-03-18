@@ -6,9 +6,11 @@ import { AuthProviderWrapper } from './context/auth.context';
 import CreateArmy from './pages/CreateArmy';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
-import Protected from './pages/Protected';
+import MyArmies from './pages/MyArmies';
 import SignupPage from './pages/SignupPage';
 import DetailArmy from './pages/DetailArmy';
+import FavArmies from './components/FavArmies';
+import Units from './pages/Units';
 
 function App() {
   return (
@@ -28,11 +30,27 @@ function App() {
         <Route exact path="/:armyId" element={<DetailArmy />} />
 
         <Route
-          path="/protected"
+          path="/my-armies"
           element={
             <IsPrivate>
-              <Protected />
+              <MyArmies />
             </IsPrivate>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <IsPrivate>
+              <FavArmies />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/units"
+          element={
+            <IsAnon>
+              <Units />
+            </IsAnon>
           }
         />
         <Route

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 
-function Protected() {
+function MyArmies() {
   const [armies, setArmies] = useState([]);
 
   const { user } = useContext(AuthContext);
@@ -33,7 +33,7 @@ function Protected() {
 
   return (
     <div>
-      <h1 className="titulo-principal">Armies</h1>
+      <h1 className="titulo-principal">My armies</h1>
       <Link to={'/add'}>
         <button>Add</button>
       </Link>
@@ -49,4 +49,4 @@ function Protected() {
   );
 }
 
-export default Protected;
+export default MyArmies;

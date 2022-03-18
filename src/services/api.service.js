@@ -67,6 +67,11 @@ class ApiService {
     console.log(userId, 'AL LISTAOOO');
     return this.api.get(`/api/myarmies/${userId}`);
   };
+
+  favoriteArmies = user => {
+    console.log(user);
+    return this.api.get(`/api/my-favorites`, user);
+  };
 }
 
 // Create one instance (object) of the service

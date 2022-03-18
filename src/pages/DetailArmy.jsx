@@ -56,6 +56,7 @@ function DetailArmy() {
     setIsClickedFav(!isClickedFav);
   };
 
+  const color = user?.favoriteArmies?.includes(army?._id) ? 'yellow' : 'black';
   return (
     <div className="detail-page">
       <h1 className="titulo-principal">Army</h1>
@@ -108,15 +109,10 @@ function DetailArmy() {
           </div>
         </div>
       )}
-      {user?.favoriteArmies?.includes(army?._id) ? (
-        <button className="botones" onClick={setFavorite} style={{ background: 'yellow' }}>
-          Favorite
-        </button>
-      ) : (
-        <button className="botones" onClick={setFavorite} style={{ background: 'black' }}>
-          Favorite
-        </button>
-      )}
+
+      <button className="botones" onClick={setFavorite} style={{ background: color }}>
+        Favorite
+      </button>
     </div>
   );
 }
