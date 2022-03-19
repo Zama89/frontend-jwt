@@ -58,9 +58,9 @@ class ApiService {
     return this.api.delete(`/api/army/${armyId}`);
   };
 
-  setFavorite = (favoriteArmies, userId) => {
+  setFavorite = body => {
     console.log(favoriteArmies, 'FWUEIFWFWFIWP');
-    return this.api.post(`/user/setfavorite/${userId}`, favoriteArmies);
+    return this.api.post(`/user/setfavorite/`, body);
   };
 
   userArmies = userId => {

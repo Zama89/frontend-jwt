@@ -34,23 +34,23 @@ function DetailArmy() {
   }, [user]);
 
   const setFavorite = () => {
-    let favoriteArmies = [...user.favoriteArmies];
-    // console.log(favoriteArmies, 'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ', army._id);
-    console.log('esto es el prevUser', prevUser);
-    console.log('esto es el user', user);
-    if (!user?.favoriteArmies?.includes(army._id)) {
-      favoriteArmies.push(army?._id);
-    } else {
-      favoriteArmies.splice(favoriteArmies.indexOf(army._id), 1);
-    }
+    // let favoriteArmies = [...user.favoriteArmies];
+    // // console.log(favoriteArmies, 'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ', army._id);
+    // console.log('esto es el prevUser', prevUser);
+    // console.log('esto es el user', user);
+    // if (!user?.favoriteArmies?.includes(army._id)) {
+    //   favoriteArmies.push(army?._id);
+    // } else {
+    //   favoriteArmies.splice(favoriteArmies.indexOf(army._id), 1);
+    // }
 
     apiService
-      .setFavorite({ favoriteArmies }, user?._id)
+      .setFavorite({ armyId: army._id })
       .then(response => {
-        setUser(prev => {
-          console.log(prev);
-          return response.data;
-        });
+        // setUser(prev => {
+        //   console.log(prev);
+        //   return response.data;
+        // });
       })
       .catch(err => console.log(err));
     setIsClickedFav(!isClickedFav);
