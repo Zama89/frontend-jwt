@@ -47,15 +47,15 @@ function DetailArmy() {
     apiService
       .setFavorite({ armyId: army._id })
       .then(response => {
-        // setUser(prev => {
-        //   console.log(prev);
-        //   return response.data;
-        // });
+        setUser(() => {
+          return response.data;
+        });
       })
       .catch(err => console.log(err));
     setIsClickedFav(!isClickedFav);
   };
 
+  console.log(user);
   const color = user?.favoriteArmies?.includes(army?._id) ? 'yellow' : 'black';
   return (
     <div className="detail-page">
