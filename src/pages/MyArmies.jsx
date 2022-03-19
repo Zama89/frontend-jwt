@@ -1,9 +1,13 @@
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth.context';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 
-function Home() {
+function MyArmies() {
   const [armies, setArmies] = useState([]);
+
+  const { user } = useContext(AuthContext);
 
   /*useEffect(() => {
     const fetchArmies = async () => {
@@ -16,7 +20,7 @@ function Home() {
 
   useEffect(() => {
     apiService
-      .getArmies()
+      .userArmies(user?._id)
       .then(response => {
         console.log('useEffect', response.data);
         setArmies(response.data);
@@ -29,7 +33,7 @@ function Home() {
 
   return (
     <div>
-      <h1 className="titulo-principal">Armies</h1>
+      <h1 className="titulo-principal">My armies</h1>
       <Link to={'/add'}>
         <button>Add</button>
       </Link>
@@ -45,4 +49,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default MyArmies;

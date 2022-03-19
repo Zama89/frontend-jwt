@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import './login.css';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -30,22 +31,30 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="login-page">
+      <h1 className="titulo-principal">Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
-
-        <button type="submit">Login</button>
+      <form onSubmit={handleLoginSubmit} className="inputs-titles">
+        <div className="form-item">
+          <label>Email:</label>
+          <input type="email" name="email" value={email} onChange={handleEmail} />
+        </div>
+        <div className="form-item">
+          <label>Password:</label>
+          <input type="password" name="password" value={password} onChange={handlePassword} />
+        </div>
+        <div className="form-button">
+          <button className="botones" type="submit">
+            Login
+          </button>
+        </div>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Dont have an account yet?</p>
-      <Link to={'/signup'}> Sign Up</Link>
+      <div className="final-login">
+        <p>Dont have an account yet?</p>
+        <Link to={'/signup'}> Sign Up</Link>
+      </div>
     </div>
   );
 }

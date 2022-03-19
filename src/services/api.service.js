@@ -36,6 +36,42 @@ class ApiService {
     // same as
     // return axios.post("http://localhost:5005/auth/verify");
   };
+
+  getArmies = () => {
+    return this.api.get('/api/');
+  };
+
+  createArmies = body => {
+    console.log('creandooo', body);
+    return this.api.post('/api/add', body);
+  };
+
+  getArmyById = armyId => {
+    return this.api.get(`/api/army/${armyId}`);
+  };
+
+  editArmy = (armyId, requestBody) => {
+    return this.api.post(`/api/army/${armyId}`, requestBody.armyEdit);
+  };
+
+  deleteArmy = armyId => {
+    return this.api.delete(`/api/army/${armyId}`);
+  };
+
+  setFavorite = body => {
+    console.log(favoriteArmies, 'FWUEIFWFWFIWP');
+    return this.api.post(`/user/setfavorite/`, body);
+  };
+
+  userArmies = userId => {
+    console.log(userId, 'AL LISTAOOO');
+    return this.api.get(`/api/myarmies/${userId}`);
+  };
+
+  favoriteArmies = user => {
+    console.log(user);
+    return this.api.get(`/api/my-favorites`, user);
+  };
 }
 
 // Create one instance (object) of the service

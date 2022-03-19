@@ -1,22 +1,17 @@
+import { useContext } from 'react';
+import { AuthContext } from '../context/auth.context';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import apiService from '../services/api.service';
 
-function Home() {
+function FavArmies() {
   const [armies, setArmies] = useState([]);
 
-  /*useEffect(() => {
-    const fetchArmies = async () => {
-      return await apiService.getArmies();
-    };
-    const { response } = fetchArmies();
-    setArmies(response);
-    console.log(response);
-  }, []);*/
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     apiService
-      .getArmies()
+      .favoriteArmies(user?._id)
       .then(response => {
         console.log('useEffect', response.data);
         setArmies(response.data);
@@ -29,10 +24,7 @@ function Home() {
 
   return (
     <div>
-      <h1 className="titulo-principal">Armies</h1>
-      <Link to={'/add'}>
-        <button>Add</button>
-      </Link>
+      <h1 className="titulo-principal">My favorites</h1>
       <div className="army-list">
         {armies.length !== 0 &&
           armies.map((army, index) => (
@@ -45,4 +37,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default FavArmies;
