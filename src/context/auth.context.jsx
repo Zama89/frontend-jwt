@@ -29,6 +29,7 @@ function AuthProviderWrapper(props) {
     apiService
       .verify()
       .then(response => {
+        console.log('verify', response.data);
         // If the server verifies that JWT token is valid  ✅
         const user = response.data;
         console.log(user, 'FUNSIONA');
