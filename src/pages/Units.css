@@ -1,0 +1,27 @@
+.titulo-segundo {
+  margin: 20px 0 30px 0;
+  font-size: 25px;
+  text-align: center;
+}
+.img-unit {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.img-unit img {
+  width: 50%;
+}
+
+.unit-description {
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+.unit-name {
+  font-size: 20px;
+}
+
+.unit {
+  padding: 20px;
+}

@@ -45,14 +45,7 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route
-          path="/units"
-          element={
-            <IsAnon>
-              <Units />
-            </IsAnon>
-          }
-        />
+        <Route path="/units" element={<Units />} />
         <Route
           path="/login"
           element={
