@@ -9,7 +9,6 @@ import LoginPage from './pages/LoginPage';
 import MyArmies from './pages/MyArmies';
 import SignupPage from './pages/SignupPage';
 import DetailArmy from './pages/DetailArmy';
-import FavArmies from './components/FavArmies';
 import Units from './pages/Units';
 
 function App() {
@@ -37,22 +36,7 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route
-          path="/favorites"
-          element={
-            <IsPrivate>
-              <FavArmies />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/units"
-          element={
-            <IsAnon>
-              <Units />
-            </IsAnon>
-          }
-        />
+        <Route path="/units" element={<Units />} />
         <Route
           path="/login"
           element={

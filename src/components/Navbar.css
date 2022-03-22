@@ -4,9 +4,25 @@ nav {
   width: 100%;
   margin-bottom: 60px;
   background-color: #145a87;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
-nav > a {
-  border: 1px solid white;
-  padding: 10px 20px;
+.nav-item {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  padding: 10px 35px;
+}
+
+.icon-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.nav-item-logout {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  padding: 10px 41.3px;
 }

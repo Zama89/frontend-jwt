@@ -6,10 +6,13 @@
 .detail-army {
   font-size: 25px;
   margin: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .detail-row {
   display: flex;
+  font-size: 14px;
 }
 
 .detail-row p:first-child {

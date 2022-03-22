@@ -5,14 +5,14 @@ import EditArmy from '../components/EditArmy';
 import DeleteArmy from '../components/DeleteArmy';
 import { AuthContext } from '../context/auth.context';
 import { useContext } from 'react';
+import logo from '../images/dwarf-icon4.webp';
 import './detailArmy.css';
 
 function DetailArmy() {
   const [army, setArmy] = useState({});
   const [edit, setEdit] = useState(false);
   const { armyId } = useParams();
-  const [isClickedFav, setIsClickedFav] = useState(false);
-  const { isLoggedIn, user, setUser } = useContext(AuthContext);
+  const { isLoggedIn, user } = useContext(AuthContext);
 
   const cantEdit = !isLoggedIn || army?.owner?._id !== user?._id;
 
@@ -21,7 +21,7 @@ function DetailArmy() {
     apiService
       .getArmyById(armyId.toString())
       .then(response => {
-        console.log('PROBANDO', response);
+        console.log(response);
         setArmy(response.data);
       })
       .catch(err => console.log(err));
@@ -33,44 +33,29 @@ function DetailArmy() {
     prevUser.current = user;
   }, [user]);
 
-  const setFavorite = () => {
-    // let favoriteArmies = [...user.favoriteArmies];
-    // // console.log(favoriteArmies, 'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ', army._id);
-    // console.log('esto es el prevUser', prevUser);
-    // console.log('esto es el user', user);
-    // if (!user?.favoriteArmies?.includes(army._id)) {
-    //   favoriteArmies.push(army?._id);
-    // } else {
-    //   favoriteArmies.splice(favoriteArmies.indexOf(army._id), 1);
-    // }
-
-    apiService
-      .setFavorite({ armyId: army._id })
-      .then(response => {
-        setUser(() => {
-          return response.data;
-        });
-      })
-      .catch(err => console.log(err));
-    setIsClickedFav(!isClickedFav);
-  };
-
-  console.log(user);
-  const color = user?.favoriteArmies?.includes(army?._id) ? 'yellow' : 'black';
   return (
     <div className="detail-page">
-      <h1 className="titulo-principal">Army</h1>
+      <div className="titulo-principal">
+        <div className="logo-controller">
+          <img width="50px" src={logo}></img>
+          <h1>Armies</h1>
+          <img width="50px" src={logo}></img>
+        </div>
+      </div>
+
       <div className="form-button">
         <div className="detail-row">
           <button
-            className="botones"
+            className="btn-action"
             disabled={cantEdit}
             onClick={() => {
               console.log('click');
               setEdit(oldValue => !oldValue);
             }}
           >
-            Edit
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
           </button>
         </div>
         <DeleteArmy disabled={cantEdit} />
@@ -109,10 +94,6 @@ function DetailArmy() {
           </div>
         </div>
       )}
-
-      <button className="botones" onClick={setFavorite} style={{ background: color }}>
-        Favorite
-      </button>
     </div>
   );
 }
