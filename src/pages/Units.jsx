@@ -1,6 +1,6 @@
-import Thorgrim from '../images/Thorgrim_Custodio_de_Agravios_8%3F.webp';
+import Thorgrim from '../images/Thorgrim.webp';
 import Ungrim from '../images/ungrim.webp';
-import MaestroIngeniero from '../images/Maestro_ingeniero_por_Even_Mehl_Amundsen.webp';
+import MaestroIngeniero from '../images/Ingeniero_enano_octava.webp';
 import HerreroRunico from '../images/herrero-runico.webp';
 import SeñorClan from '../images/señor-clan.webp';
 import GuerrerosEnanos from '../images/warriors-snow.webp';
@@ -14,25 +14,30 @@ import Dracohierros from '../images/Dracohierros.webp';
 import Lanzaagravios from '../images/lanzaagravios.webp';
 import Cañon from '../images/cannon.png';
 import CañonOrgano from '../images/Cañón_Órgano_Enano_por_Paul_Dainton.webp';
-import Lanzallamas from '../images/Dwarf_Flame_Cannon_6th_Edition_Black%26White_Illustration.webp';
-import Girocoptero from '../images/Giroc%3Fptero_Enano_imagen_8%3F_Edici%3Fn.webp';
+import Lanzallamas from '../images/Lanzallamas.webp';
+import Girocoptero from '../images/Girocoptero.webp';
 import GirocopteroBombardero from '../images/Girobombardero.webp';
+import logo from '../images/dwarf-icon4.webp';
 import './Units.css';
 
 function Units() {
   return (
     <>
-      <div>
-        <h1 className="titulo-principal">Units</h1>
+      <div className="titulo-principal">
+        <div className="logo-controller">
+          <img width="50px" src={logo}></img>
+          <h1>Units</h1>
+          <img width="50px" src={logo}></img>
+        </div>
       </div>
 
       <div>
-        <h2 className="titulo-segundo">Heroes</h2>
+        <h2 className="titulo-segundo">Héroes</h2>
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Thorgrim} />
           <div className="unit-name">Thorgrim</div>
+          <img src={Thorgrim} />
         </div>
         <div className="unit-description">
           Thorgrim es el descendiente del más antiguo y noble de todos los Señores de los Enanos. La propia sangre de
@@ -41,8 +46,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Ungrim} />
           <div className="unit-name">Ungrim</div>
+          <img src={Ungrim} />
         </div>
         <div className="unit-description">
           Ungrim Puñohierro es el actual Rey Matador de Karak-Kadrin. Hay muy pocas razas de monstruo a las que Ungrim
@@ -55,8 +60,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={MaestroIngeniero} />
           <div className="unit-name">Maestro Ingeniero</div>
+          <img src={MaestroIngeniero} />
         </div>
         <div className="unit-description">
           El Maestro Ingeniero es un experto Ingeniero Enano de excepcional conocimiento, destreza y habilidad. Muchos
@@ -66,8 +71,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={HerreroRunico} />
           <div className="unit-name">Herrero Rúnico</div>
+          <img src={HerreroRunico} />
         </div>
         <div className="unit-description">
           Los Herreros Rúnicos crean hechizos con sus martillos, uniendo los Vientos de la Magia a potentes runas de
@@ -77,8 +82,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={SeñorClan} />
           <div className="unit-name">Señor del clan</div>
+          <img src={SeñorClan} />
         </div>
         <div className="unit-description">
           Los líderes de los Enanos son los Señores de los Enanos y Señores de Clan, los guerreros más poderosos del
@@ -90,8 +95,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={GuerrerosEnanos} />
           <div className="unit-name">Guerreros Enanos</div>
+          <img src={GuerrerosEnanos} />
         </div>
         <div className="unit-description">
           Acorazado y escudado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con
@@ -103,8 +108,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Rompehierros} />
           <div className="unit-name">Rompehierros</div>
+          <img src={Rompehierros} />
         </div>
         <div className="unit-description">
           Acorazado y escudado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con
@@ -118,8 +123,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Barbaslargas} />
           <div className="unit-name">Barbaslargas</div>
+          <img src={Barbaslargas} />
         </div>
         <div className="unit-description">
           Acorazado y escudado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con
@@ -133,8 +138,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Matadores} />
           <div className="unit-name">Matadores</div>
+          <img src={Matadores} />
         </div>
         <div className="unit-description">
           Rápido para ser Enano. Si bien no se puede decir que los Enanos sean los habitantes más ligeros del Viejo
@@ -151,8 +156,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Ballesteros} />
           <div className="unit-name">Ballesteros</div>
+          <img src={Ballesteros} />
         </div>
         <div className="unit-description">
           Acorazado y escudado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con
@@ -164,8 +169,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Mineros} />
           <div className="unit-name">Mineros</div>
+          <img src={Mineros} />
         </div>
         <div className="unit-description">
           Acorazado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con daño por poder
@@ -178,8 +183,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Atronadores} />
           <div className="unit-name">Atronadores</div>
+          <img src={Atronadores} />
         </div>
         <div className="unit-description">
           Acorazado y escudado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con
@@ -194,8 +199,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Dracohierros} />
           <div className="unit-name">Dracohierros</div>
+          <img src={Dracohierros} />
         </div>
         <div className="unit-description">
           Acorazado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con daño por poder
@@ -211,8 +216,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Lanzaagravios} />
           <div className="unit-name">Lanzaagravios</div>
+          <img src={Lanzaagravios} />
         </div>
         <div className="unit-description">
           Proyectiles con poder de penetración. El daño de las armas con poder de penetración ignora en gran parte la
@@ -225,8 +230,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Cañon} />
           <div className="unit-name">Cañón</div>
+          <img src={Cañon} />
         </div>
         <div className="unit-description">
           Proyectiles con poder de penetración. El daño de las armas con poder de penetración ignora en gran parte la
@@ -241,8 +246,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={CañonOrgano} />
           <div className="unit-name">Cañón órgano</div>
+          <img src={CañonOrgano} />
         </div>
         <div className="unit-description">
           Proyectiles con poder de penetración. El daño de las armas con poder de penetración ignora en gran parte la
@@ -252,8 +257,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Lanzallamas} />
           <div className="unit-name">Lanzallamas</div>
+          <img src={Lanzallamas} />
         </div>
         <div className="unit-description">
           Eficaz contra infantería. Las unidades eficaces contra la infantería tienen ventaja contra objetivos más
@@ -263,8 +268,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={Girocoptero} />
           <div className="unit-name">Girocóptero</div>
+          <img src={Girocoptero} />
         </div>
         <div className="unit-description">
           Acorazado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con daño por poder
@@ -276,8 +281,8 @@ function Units() {
       </div>
       <div className="unit">
         <div className="img-unit">
-          <img src={GirocopteroBombardero} />
           <div className="unit-name">Girocóptero Bombardero</div>
+          <img src={GirocopteroBombardero} />
         </div>
         <div className="unit-description">
           Acorazado. Las unidades acorazadas pueden bloquear todos los daños excepto los de las armas con daño por poder
