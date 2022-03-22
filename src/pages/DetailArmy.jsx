@@ -49,7 +49,6 @@ function DetailArmy() {
             className="btn-action"
             disabled={cantEdit}
             onClick={() => {
-              console.log('click');
               setEdit(oldValue => !oldValue);
             }}
           >
